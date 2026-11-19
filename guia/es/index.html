@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tu empresa de IA — produce IA, no solo la consumas</title>
+<meta name="description" content="Kit gratuito para que la pequeña y mediana empresa se convierta en empresa de IA: Radiografía de procesos, calculadora de costo por tarea en dólares y checklist del agente seguro, más la ruta de cursos INEMA.">
+<link rel="alternate" hreflang="pt-BR" href="https://inematds.github.io/empresa-de-ia/guia/">
+<link rel="alternate" hreflang="en" href="https://inematds.github.io/empresa-de-ia/guia/en/">
+<link rel="alternate" hreflang="es" href="https://inematds.github.io/empresa-de-ia/guia/es/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0c0c10; --bg2:#14141b; --card:#16161e; --line:#272730;
+    --txt:#e9e9ee; --mut:#9a9aa6; --amb:#FACC15; --amb2:#f0c070; --sky:#38bdf8; --pro:#cbd5e1;
+    --ok:#7CE0C6; --warn:#F2B45C; --bad:#E0736F;
+    color-scheme:dark;
+  }
+  body.light{
+    --bg:#f6f7f9; --bg2:#eceef2; --card:#ffffff; --line:#e1e3ea;
+    --txt:#1a1a22; --mut:#5b5b68; --amb:#a16207; --amb2:#a16207; --sky:#0369a1; --pro:#b45309;
+    --ok:#0E6B55; --warn:#8F520A; --bad:#b42318;
+    color-scheme:light;
+  }
+  body.light .hero .glow{opacity:.5}
+  body.light pre{background:#0e0e14;color:#d6d6e0}
+  body.light pre .c{color:#8a8a98}
+  body.light .btn{background:#FACC15}
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--txt);font:16px/1.65 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:Sora,sans-serif;line-height:1.15;margin:0}
+  a{color:var(--amb);text-decoration:none}
+  body.light a:not(.btn):not(.inema):not(.pro):not(.brand){color:#854d0e;text-decoration:underline;text-decoration-color:#FACC15;text-decoration-thickness:3px}
+  code,pre{font-family:"JetBrains Mono",monospace}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 22px}
+  .mut{color:var(--mut)} .amb{color:var(--amb)}
+  body.light .amb{color:var(--txt);background:linear-gradient(transparent 55%,#FACC15 55%)}
+  .chip{display:inline-block;font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amb);font-weight:600;font-family:Sora}
+  nav{position:sticky;top:0;z-index:30;backdrop-filter:blur(12px);background:rgba(12,12,16,.78);border-bottom:1px solid var(--line)}
+  body.light nav{background:rgba(246,247,249,.85)}
+  nav .wrap{display:flex;align-items:center;gap:22px;height:60px}
+  nav .brand{display:flex;align-items:center;gap:8px;font-family:Sora;font-weight:800;letter-spacing:-.02em;color:var(--amb)}
+  nav .brand .emoji{font-size:1.25rem}
+  nav .sep{color:var(--mut);opacity:.45}
+  nav .inema{color:var(--sky);font-weight:600;font-size:.88rem;font-family:Sora}
+  nav .pro{color:var(--pro);font-weight:600;font-size:.88rem;font-family:Sora}
+  nav .clubpro{display:inline-flex;align-items:center;gap:6px}
+  nav .links{margin-left:auto;display:flex;align-items:center;gap:20px;font-size:.92rem}
+  nav .links a.sec{color:var(--mut);text-decoration:none!important} nav .links a.sec:hover{color:var(--txt)}
+  .lang{display:inline-flex;gap:2px;font-family:Sora;font-size:.78rem}
+  .lang a{color:var(--mut)!important;padding:.2em .45em;border-radius:6px;text-decoration:none!important} .lang a.on{color:var(--amb)!important;background:rgba(250,204,21,.12)}
+  .tgl{background:var(--bg2);border:1px solid var(--line);color:var(--txt);width:38px;height:38px;border-radius:10px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;font-size:1.05rem}
+  .tgl:hover{border-color:var(--amb)}
+  .btn{display:inline-block;background:var(--amb);color:#1a1206!important;font-weight:600;padding:.6em 1.05em;border-radius:10px;font-family:Sora;border:none;cursor:pointer;font-size:.95rem;text-decoration:none!important}
+  .btn.ghost{background:transparent!important;color:var(--txt)!important;border:1px solid var(--line)}
+  .btn.sm{padding:.4em .8em;font-size:.85rem}
+  @media(max-width:860px){nav .links a.sec{display:none}}
+  @media(max-width:520px){nav .wrap{gap:8px;padding:8px 14px;height:auto;flex-wrap:wrap} nav .links{gap:8px;margin-left:0;width:100%;justify-content:space-between} nav .btn{padding:.45em .7em;font-size:.82rem} .tgl{width:34px;height:34px}}
+  .hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+  .hero .glow{position:absolute;inset:-40% -20% auto auto;width:70%;height:600px;background:radial-gradient(closest-side,rgba(250,204,21,.18),transparent 70%);pointer-events:none}
+  .hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;padding:74px 22px}
+  .hero h1{font-size:clamp(2.2rem,5vw,3.5rem);font-weight:800;letter-spacing:-.025em}
+  .hero p.lead{font-size:1.18rem;color:var(--mut);margin:1.1em 0 1.6em;max-width:36ch}
+  .hero .cta{display:flex;gap:12px;flex-wrap:wrap}
+  .hero figure{margin:0;border-radius:16px;overflow:hidden;border:1px solid var(--line);box-shadow:0 30px 80px -30px #000}
+  .hero figure img{width:100%;height:auto;display:block}
+  .resumo{padding:38px 0 34px;border-bottom:1px solid var(--line)}
+  .resumo p{font-size:1.12rem;line-height:1.7;max-width:74ch;margin:.55em 0 0}
+  @media(max-width:780px){.hero .wrap{grid-template-columns:1fr;padding:48px 22px}}
+  section{padding:62px 0;border-bottom:1px solid var(--line)}
+  section h2{font-size:clamp(1.5rem,3.4vw,2.1rem);font-weight:800;letter-spacing:-.02em}
+  section .sub{color:var(--mut);margin:.6em 0 2em;max-width:66ch}
+  .grid{display:grid;gap:16px}
+  .g3{grid-template-columns:repeat(3,1fr)} .g4{grid-template-columns:repeat(4,1fr)} .g2{grid-template-columns:repeat(2,1fr)}
+  @media(max-width:820px){.g3,.g4{grid-template-columns:1fr 1fr}}
+  @media(max-width:540px){.g2,.g3,.g4{grid-template-columns:1fr}}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;min-width:0}
+  .card h3{font-size:1.05rem;margin-bottom:.4em}
+  .card p{color:var(--mut);font-size:.95rem;margin:0}
+  .card ul{margin:.5em 0 0;padding-left:1.1em;color:var(--mut);font-size:.95rem}
+  .flow{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:10px}
+  .flow span{background:var(--bg2);border:1px solid var(--line);border-radius:999px;padding:.45em .9em;font-size:.88rem;font-family:Sora;font-weight:600}
+  .flow .arr{color:var(--amb);border:none;background:none;padding:0 .1em}
+  pre{background:#0a0a0e;border:1px solid var(--line);border-radius:12px;padding:16px 18px;overflow:auto;font-size:.86rem;line-height:1.6;color:#d6d6e0}
+  pre .c{color:#6f6f7c} pre .k{color:var(--amb2)} pre .s{color:#9ece6a}
+  .step{display:grid;grid-template-columns:46px minmax(0,1fr);gap:16px;margin-bottom:34px}
+  .step>div{min-width:0}
+  @media(max-width:600px){.step{grid-template-columns:1fr;gap:10px}}
+  .step .b{width:46px;height:46px;border-radius:12px;background:#FACC15;color:#1a1206;font-family:Sora;font-weight:800;font-size:1.25rem;display:flex;align-items:center;justify-content:center}
+  .step h3{font-size:1.15rem;margin-bottom:.3em}
+  .step p{color:var(--mut);margin:.2em 0 .8em}
+  .phase{display:flex;gap:14px;padding:16px 0;border-bottom:1px solid var(--line)}
+  .phase:last-child{border:none}
+  .phase .tag{flex:0 0 92px;font-family:Sora;font-weight:800;color:var(--amb)}
+  .phase .d strong{display:block;margin-bottom:.2em}
+  .phase .d span{color:var(--mut);font-size:.95rem}
+  footer{padding:46px 0;text-align:center;color:var(--mut);font-size:.9rem}
+  .pill{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:.3em .8em;font-size:.78rem;color:var(--mut);margin:4px}
+  /* bolo */
+  .bolo{display:grid;gap:8px;margin:0 0 26px}
+  .camada{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr) minmax(0,1fr);gap:12px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 16px}
+  .camada .n{font-family:Sora;font-weight:800;color:var(--amb)}
+  .camada .p{font-size:.95rem}
+  .camada .t{font-size:.88rem;color:var(--mut)}
+  .camada.head{background:transparent;border:none;padding:0 16px;font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mut);font-family:Sora}
+  @media(max-width:620px){.camada{grid-template-columns:1fr;gap:2px}.camada.head{display:none}}
+  /* ferramentas */
+  .tool{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;margin-top:6px}
+  .row{display:grid;grid-template-columns:minmax(0,2.2fr) repeat(5,minmax(0,1fr)) 34px;gap:8px;align-items:end;padding:10px 0;border-bottom:1px dashed var(--line)}
+  .row:last-of-type{border-bottom:none}
+  .row.h{font-size:.75rem;letter-spacing:.06em;text-transform:uppercase;color:var(--mut);font-family:Sora;border-bottom:1px solid var(--line);padding-top:0}
+  .row .lb{display:none;font-size:.75rem;color:var(--mut);font-family:Sora;letter-spacing:.04em;text-transform:uppercase;margin-bottom:2px}
+  @media(max-width:860px){.row{grid-template-columns:1fr 1fr}.row.h{display:none}.row .lb{display:block}.row .nome{grid-column:1/-1}.row .del{grid-column:2;justify-self:end}}
+  input,select{width:100%;background:var(--bg2);border:1px solid var(--line);color:var(--txt);border-radius:8px;padding:.5em .6em;font:inherit;font-size:.92rem;min-width:0}
+  input:focus,select:focus{outline:2px solid var(--amb);outline-offset:1px}
+  .del{background:transparent;border:1px solid var(--line);color:var(--mut);border-radius:8px;width:34px;height:36px;cursor:pointer;font-size:1rem}
+  .del:hover{border-color:var(--bad);color:var(--bad)}
+  .acts{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+  .res{margin-top:18px;display:grid;gap:10px}
+  .rank{display:grid;grid-template-columns:40px minmax(0,1fr);gap:12px;align-items:start;background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+  .rank .pos{width:40px;height:40px;border-radius:10px;background:#FACC15;color:#1a1206;font-family:Sora;font-weight:800;display:flex;align-items:center;justify-content:center}
+  .rank h4{margin:0 0 .2em;font-family:Sora;font-size:1rem}
+  .rank p{margin:0;color:var(--mut);font-size:.92rem}
+  .calc{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+  @media(max-width:760px){.calc{grid-template-columns:1fr 1fr}}
+  @media(max-width:460px){.calc{grid-template-columns:1fr}}
+  .calc label{font-size:.85rem;color:var(--mut);display:block;margin-bottom:3px}
+  .calc .hint{font-size:.78rem;color:var(--mut);margin-top:3px;display:block}
+  .kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:18px}
+  @media(max-width:760px){.kpis{grid-template-columns:1fr 1fr}}
+  .kpi{background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+  .kpi .v{font-family:Sora;font-weight:800;font-size:clamp(1rem,4.4vw,1.45rem);color:var(--amb);white-space:nowrap}
+  .kpi{min-width:0;overflow:hidden}
+  body.light .kpi .v{color:var(--txt)}
+  .kpi .l{font-size:.82rem;color:var(--mut)}
+  .nota{font-size:.85rem;color:var(--mut);margin-top:12px}
+  .check{display:grid;gap:8px}
+  .check label{display:grid;grid-template-columns:24px minmax(0,1fr);gap:10px;align-items:start;background:var(--bg2);border:1px solid var(--line);border-radius:10px;padding:10px 12px;cursor:pointer}
+  .check input{width:20px;height:20px;margin-top:2px;accent-color:#FACC15}
+  .check b{font-family:Sora;font-size:.95rem;display:block}
+  .check span{font-size:.88rem;color:var(--mut)}
+  .veredito{margin-top:14px;border-radius:12px;padding:14px 16px;border:1px solid var(--line);background:var(--bg2)}
+  .veredito strong{font-family:Sora}
+  .veredito.bad{border-color:var(--bad)} .veredito.bad strong{color:var(--bad)}
+  .veredito.warn{border-color:var(--warn)} .veredito.warn strong{color:var(--warn)}
+  .veredito.ok{border-color:var(--ok)} .veredito.ok strong{color:var(--ok)}
+  .trilha a.card{display:block;text-decoration:none!important;color:var(--txt)!important}
+  .trilha a.card:hover{border-color:var(--amb)}
+  .trilha .tg{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amb);font-family:Sora;font-weight:600}
+  body.light .trilha .tg{color:#854d0e}
+  .dado{font-family:Sora;font-weight:800;font-size:2rem;color:var(--amb)}
+  body.light .dado{color:var(--txt)}
+  .fonte{font-size:.8rem;color:var(--mut);display:block;margin-top:.4em}
+  .tb{overflow-x:auto;border:1px solid var(--line);border-radius:14px}
+  .tb table{width:100%;border-collapse:collapse;font-size:.9rem;min-width:720px}
+  .tb th,.tb td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--line);white-space:nowrap}
+  .tb th{font-family:Sora;font-size:.75rem;letter-spacing:.06em;text-transform:uppercase;color:var(--mut);background:var(--bg2)}
+  .tb tr:last-child td{border-bottom:none}
+  .tb td.g{font-family:Sora;font-weight:800;color:var(--amb)}
+  body.light .tb td.g{color:#854d0e}
+  .tb tr.top td{background:color-mix(in srgb,var(--amb) 8%,transparent)}
+  nav .links a.sec{white-space:nowrap}
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <a class="brand" href="#top"><span class="emoji">🏭</span> Tu empresa de IA</a>
+  <span class="sep">|</span>
+  <span class="clubpro">
+    <a class="inema" href="https://inema.club" target="_blank" rel="noopener">INEMA.CLUB</a>
+    <span class="sep">-</span>
+    <a class="pro" href="https://inema.pro" target="_blank" rel="noopener">PRO</a>
+  </span>
+  <div class="links">
+    <a class="sec" href="#oque">Qué es</a>
+    <a class="sec" href="#guia">Herramientas</a>
+    <a class="sec" href="#fabrica">Fábrica</a>
+    <a class="sec" href="#consultor">Consultoría</a>
+    <span class="lang"><a href="../">PT</a><a href="../en/">EN</a><a class="on" href="./">ES</a></span>
+    <button class="tgl" id="themeToggle" aria-label="Cambiar tema" title="Cambiar tema">🌙</button>
+    <a class="btn" href="https://github.com/inematds/empresa-de-ia" target="_blank" rel="noopener">GitHub</a>
+  </div>
+</div></nav>
+
+<header class="hero" id="top">
+  <div class="glow"></div>
+  <div class="wrap">
+    <div>
+      <span class="chip">Kit gratuito para pequeña y mediana empresa</span>
+      <h1>Tu empresa de <span class="amb">IA</span>, empezando hoy</h1>
+      <p class="lead">Descubre qué proceso entregarle primero a un agente, cuánto cuesta en dinero de verdad y si es seguro encenderlo.</p>
+      <div class="cta">
+        <a class="btn" href="#guia">Empezar la Radiografía</a>
+        <a class="btn ghost" href="https://github.com/inematds/empresa-de-ia" target="_blank" rel="noopener">Ver en GitHub</a>
+      </div>
+    </div>
+    <figure><img src="../assets/banner-es.jpg" alt="Banner Tu empresa de IA: produce IA, no solo la consumas"></figure>
+  </div>
+</header>
+
+<section id="resumo" class="resumo"><div class="wrap">
+  <span class="chip">En resumen</span>
+  <p>Este es un kit gratuito para que el dueño de una pequeña o mediana empresa deje de usar ChatGPT a la suerte y ponga un agente de IA a trabajar en un proceso real. Son herramientas que funcionan aquí en la página, sin registro: la Radiografía de procesos señalan por dónde empezar, la calculadora muestra cuánto cuesta y cuánto devuelve, el checklist dice si el agente es seguro para encenderlo y el comparador de la fábrica muestra si conviene más la herramienta lista, la API o una máquina propia, con una prueba de modelos abiertos en portugués. Quien hace consultoría encuentra al final el modelo para aplicar todo esto en un cliente. Después, la ruta lleva a los cursos y kits de INEMA para armar cada agente. Solo necesitas el navegador; nada sale de tu computadora.</p>
+</div></section>
+
+<section id="oque"><div class="wrap">
+  <span class="chip">Qué es</span>
+  <h2>El pastel de cinco capas, a la medida de tu empresa</h2>
+  <p class="sub">En Berlín, en octubre de 2026, Jensen Huang (Nvidia) dijo que toda empresa se va a convertir en empresa de inteligencia artificial y que el camino es producir IA, no solo consumirla. Lo explicó con un pastel de cinco capas. Aquí está la misma idea traducida para el dueño de una empresa pequeña.</p>
+  <figure style="margin:0 0 26px;border-radius:16px;overflow:hidden;border:1px solid var(--line);box-shadow:0 30px 80px -30px #000"><img src="../assets/banner-grade-es.jpg" alt="Las seis piezas del kit Tu empresa de IA" loading="lazy" style="width:100%;display:block"></figure>
+  <div class="bolo">
+    <div class="camada head"><div>Capa de Jensen</div><div>En tu empresa</div><div>Pieza del kit</div></div>
+    <div class="camada"><div class="n">5 · Aplicaciones</div><div class="p">Los procesos de tu negocio: atender, agendar, cobrar, vender</div><div class="t">Radiografía de procesos</div></div>
+    <div class="camada"><div class="n">4 · Modelos</div><div class="p">Qué IA hace cada tarea y cuánto cobra por tarea</div><div class="t">Calculadora de costo</div></div>
+    <div class="camada"><div class="n">3 · Fábrica de IA</div><div class="p">Dónde corre la IA: servicio en la nube, API o máquina propia</div><div class="t">Comparador de la fábrica y prueba en portugués</div></div>
+    <div class="camada"><div class="n">2 · Computadoras</div><div class="p">El agente corriendo aislado, solo con el acceso que necesita</div><div class="t">Checklist del agente seguro</div></div>
+    <div class="camada"><div class="n">1 · Energía</div><div class="p">Personas, datos y el contexto de tu negocio</div><div class="t">Ruta INEMA</div></div>
+  </div>
+  <p class="sub" style="margin-top:0"><strong>En la práctica:</strong> un agente que responde horarios y precios en el WhatsApp de la clínica solo, y pasa a la recepción lo que no sabe. Esa es la capa 5 funcionando sobre las otras cuatro.</p>
+  <div class="card" style="margin-bottom:26px"><h3>📖 Palabras de esta guía</h3><ul>
+    <li><b>Agente</b>: una IA que no solo conversa, sino que hace la tarea (lee el mensaje, consulta la agenda, responde, registra). ChatGPT responde; el agente trabaja.</li>
+    <li><b>Token</b>: pedazo de texto que la IA lee o escribe (unas 4 letras). El precio de la IA se cobra por millón de tokens.</li>
+    <li><b>API</b>: la puerta por la que un sistema habla con otro; por ella el agente usa la IA y paga por uso.</li>
+    <li><b>Modelo abierto</b>: una IA que cualquiera puede descargar y ejecutar en su propio computador, gratis, sin pagar por tarea a un proveedor.</li>
+    <li><b>Ollama</b>: programa gratuito que descarga y ejecuta modelos abiertos en tu computador (<a href="https://ollama.com" target="_blank" rel="noopener">ollama.com</a>).</li>
+    <li><b>Ambiente aislado</b>: una cuenta o máquina separada solo para el agente, donde no alcanza el resto de la empresa.</li>
+    <li><b>Bóveda de contraseñas</b>: lugar protegido donde quedan contraseñas y claves; el agente las usa sin ver nunca el texto.</li>
+    <li><b>OWASP</b>: fundación abierta que publica las listas de riesgos de seguridad más usadas del mundo.</li>
+    <li><b>CSV</b>: planilla en texto simple, que abre en Excel y en Google Sheets.</li>
+  </ul></div>
+  <div class="grid g3">
+    <div class="card"><span class="dado">41%</span><h3>No saben por dónde empezar</h3><p>Es la barrera número uno de las pymes en Brasil, por delante del costo (31%). La Radiografía ataca justo eso.</p><span class="fonte">Serasa Experian, encuesta con pymes, 2026</span></div>
+    <div class="card"><span class="dado">80%</span><h3>Compran hecho</h3><p>De las empresas en Brasil que usan IA, el 80% compra software listo y solo el 26% crea una solución propia. Es el "consumir" de Jensen.</p><span class="fonte">Cetic.br, TIC Empresas 2025</span></div>
+    <div class="card"><span class="dado">40%+</span><h3>Proyectos de agentes cancelados</h3><p>Previsión hasta 2027, por costo, valor poco claro y riesgo sin control. La calculadora y el checklist existen para que no entres en esa cuenta.</p><span class="fonte">Gartner, previsión de junio de 2025</span></div>
+  </div>
+</div></section>
+
+<section id="fluxo"><div class="wrap">
+  <span class="chip">Cómo funciona</span>
+  <h2>Del proceso suelto al primer agente medido</h2>
+  <p class="sub">Un proceso a la vez. Eliges, calculas, revisas la seguridad, haces un piloto de 30 días y mides. Si funcionó, pasas al siguiente de la fila.</p>
+  <div class="flow">
+    <span>1 · Radiografía</span><span class="arr">→</span>
+    <span>2 · Costo</span><span class="arr">→</span>
+    <span>3 · Seguridad</span><span class="arr">→</span>
+    <span>4 · Piloto de 30 días</span><span class="arr">→</span>
+    <span>5 · Medir</span><span class="arr">→</span>
+    <span>Siguiente de la fila</span>
+  </div>
+</div></section>
+
+<section id="pre"><div class="wrap">
+  <span class="chip">Requisitos</span>
+  <h2>Solo el navegador</h2>
+  <p class="sub">Las herramientas corren en esta página. Los números quedan guardados solo en tu navegador; nada se envía a nadie.</p>
+  <div class="grid g3">
+    <div class="card"><h3>📝 Una lista de tareas</h3><p>Las tareas que se repiten cada semana en la empresa. Si no las tienes en la cabeza, pídele al equipo que las anote durante tres días.</p></div>
+    <div class="card"><h3>⏱️ Tiempo y volumen aproximados</h3><p>Cuántas veces por semana ocurre cada tarea y cuántos minutos toma. Una estimación ya sirve para empezar.</p></div>
+    <div class="card"><h3>📂 Opcional: el kit en hoja de cálculo</h3><p>En GitHub, la carpeta <a href="https://github.com/inematds/empresa-de-ia/tree/main/kit" target="_blank" rel="noopener"><code>kit/</code></a> tiene la Radiografía y la calculadora en CSV para abrir en Excel o Google Sheets, y el checklist en texto (en portugués).</p></div>
+  </div>
+</div></section>
+
+<section id="guia"><div class="wrap">
+  <span class="chip">Guía de uso · las herramientas</span>
+  <h2>Tres herramientas, en este orden</h2>
+  <p class="sub">La página ya viene con el ejemplo de una clínica pequeña cargado. Cámbialo por los datos de tu empresa.</p>
+
+  <div class="step"><div class="b">1</div><div>
+    <h3>Radiografía de procesos: por dónde empezar</h3>
+    <p>Anota las tareas que se repiten. Para cada una, indica cuántas veces por semana ocurre, cuántos minutos toma, si la regla es clara, si la información ya está en la computadora y qué tan grave es el daño si sale mal. La Radiografía te devuelve la fila de los tres primeros procesos y el kit INEMA para cada uno.</p>
+    <div class="tool" id="raiox">
+      <div class="row h"><div>Tarea</div><div>Veces/semana</div><div>Minutos</div><div>¿Regla clara?</div><div>¿Dato digital?</div><div>Si falla</div><div></div></div>
+      <div id="rxRows"></div>
+      <div class="acts">
+        <button class="btn sm ghost" id="rxAdd">+ Tarea</button>
+        <button class="btn sm" id="rxGo">Actualizar la fila</button>
+        <button class="btn sm ghost" id="rxCsv">Descargar CSV</button>
+        <button class="btn sm ghost" id="rxReset">Volver al ejemplo</button>
+      </div>
+      <div class="res" id="rxRes"></div>
+      <p class="nota">Cómo se calcula la nota: horas por mes × claridad de la regla × dato disponible ÷ riesgo. Es una regla para ordenar, no una verdad. Una tarea de riesgo alto puede entrar en la fila, pero solo con una persona aprobando cada respuesta.</p>
+    </div>
+  </div></div>
+
+  <div class="step"><div class="b">2</div><div>
+    <h3>Calculadora: cuánto cuesta y cuánto devuelve</h3>
+    <p>Toma el primero de la fila. Compara el costo de hoy (personas haciéndolo) con el costo del agente (la cuenta de la IA más el tiempo de alguien revisando). La métrica que importa es el costo por tarea, contando la revisión y las tareas que vuelven a una persona.</p>
+    <div class="tool" id="calc">
+      <div class="calc">
+        <div><label for="cQtd">Tareas por mes</label><input id="cQtd" type="number" min="0" value="600"></div>
+        <div><label for="cMin">Minutos de una persona por tarea</label><input id="cMin" type="number" min="0" step="0.5" value="6"></div>
+        <div><label for="cHora">Costo por hora de la persona (US$)</label><input id="cHora" type="number" min="0" step="0.5" value="6"><span class="hint">Sueldo + cargas sociales ÷ horas trabajadas</span></div>
+        <div><label for="cPct">% que el agente resuelve solo</label><input id="cPct" type="number" min="0" max="100" value="70"><span class="hint">El resto vuelve a una persona</span></div>
+        <div><label for="cRev">Minutos de revisión por tarea del agente</label><input id="cRev" type="number" min="0" step="0.5" value="0.5"></div>
+        <div><label for="cTok">Tokens por tarea (miles)</label><input id="cTok" type="number" min="0" step="0.5" value="20"><span class="hint">Orden de magnitud: respuesta corta con contexto, 2 a 10 mil; agente con varias etapas, 20 a 100 mil. El número real aparece en el panel de uso del proveedor de IA.</span></div>
+        <div><label for="cPreco">Precio por millón de tokens (US$)</label><input id="cPreco" type="number" min="0" step="0.1" value="3"><span class="hint">Revisa el precio del modelo que usas</span></div>
+        <div><label for="cDolar">Tipo de cambio (US$ = 1)</label><input id="cDolar" type="number" min="0" step="0.01" value="1"><span class="hint">Deja 1 si calculas en dólares</span></div>
+        <div><label for="cFixo">Costo fijo por mes (US$)</label><input id="cFixo" type="number" min="0" value="30"><span class="hint">Lo que pagas cada mes para que el agente exista, lo uses o no: suscripción, servidor, número oficial de WhatsApp…</span></div>
+      </div>
+      <div class="kpis">
+        <div class="kpi"><div class="v" id="kHoje">–</div><div class="l">costo por mes hoy</div></div>
+        <div class="kpi"><div class="v" id="kAgente">–</div><div class="l">costo por mes con el agente</div></div>
+        <div class="kpi"><div class="v" id="kEcon">–</div><div class="l">diferencia por mes</div></div>
+        <div class="kpi"><div class="v" id="kHoras">–</div><div class="l">horas liberadas por mes</div></div>
+        <div class="kpi"><div class="v" id="kTarefa">–</div><div class="l">costo por tarea con el agente (contando las que vuelven a una persona)</div></div>
+        <div class="kpi"><div class="v" id="kTarefaH">–</div><div class="l">costo por tarea hoy</div></div>
+        <div class="kpi"><div class="v" id="kIA">–</div><div class="l">solo la cuenta de la IA por mes</div></div>
+        <div class="kpi"><div class="v" id="kAno">–</div><div class="l">diferencia en 12 meses</div></div>
+      </div>
+      <p class="nota">Los valores que vienen cargados son un ejemplo, no el precio de ningún proveedor. Mide tu línea de base antes del piloto (cuántas tareas, cuánto tiempo) y repite la cuenta con los números reales después de 30 días.</p>
+    </div>
+  </div></div>
+
+  <div class="step"><div class="b">3</div><div>
+    <h3>Checklist del agente seguro: ¿se puede encender?</h3>
+    <p>El agente trabaja solo y toca archivos, cuentas y mensajes. La regla del keynote es el mínimo privilegio: solo accede a lo que la tarea necesita, y alguien lo supervisa. Marca lo que ya está garantizado.</p>
+    <div class="tool">
+      <p class="nota" style="margin-top:0">Los ítems 2, 4 y 10 son obligatorios: sin cualquiera de ellos el resultado no pasa de piloto con supervisión.</p>
+      <div class="check" id="chk"></div>
+      <div class="veredito" id="chkRes"></div>
+      <p class="nota">Basado en el principio del mínimo privilegio y en los riesgos del OWASP Top 10 para aplicaciones con agentes (2026), traducido para quien no es técnico. La versión en texto está en <a href="https://github.com/inematds/empresa-de-ia/blob/main/kit/checklist-agente-seguro.md" target="_blank" rel="noopener"><code>kit/checklist-agente-seguro.md</code></a> (en portugués).</p>
+    </div>
+  </div></div>
+
+  <div class="step"><div class="b">4</div><div>
+    <h3>Piloto de 30 días y medición</h3>
+    <p>Arma el agente del primer proceso con el kit que indica la Radiografía. Durante los 30 días, anota cada semana: cuántas tareas hizo, cuántas volvieron a una persona, cuánto costó la cuenta de la IA y cuántas quejas hubo. Al final, rehaz la calculadora con esos números. Si la diferencia es positiva y el checklist sigue en verde, pasa al segundo de la fila.</p>
+  </div></div>
+</div></section>
+
+<section id="fabrica"><div class="wrap">
+  <span class="chip">Fábrica de IA · capa 3</span>
+  <h2>Dónde corre tu agente: herramienta lista, API o máquina propia</h2>
+  <p class="sub">Es la pregunta que Jensen llama fábrica de IA. Para la pequeña empresa, son tres caminos. Ninguno es el mejor siempre: la cuenta cambia con el volumen de tareas y con el tipo de dato que toca el agente.</p>
+  <div class="grid g3">
+    <div class="card"><h3>📦 Herramienta lista</h3><p>Un asistente de WhatsApp listo, un plan empresarial de chat. Pagas una mensualidad fija y empiezas el mismo día. Bueno para probar. El límite es que solo hace lo que la herramienta ya hace, y los datos quedan con el proveedor.</p></div>
+    <div class="card"><h3>☁️ API en la nube</h3><p>Tu agente usa un modelo grande de un proveedor y paga por uso (por millón de tokens). Los modelos más fuertes están aquí, y la cuenta crece junto con el volumen. Los datos pasan por el proveedor: lee el contrato de uso de datos.</p></div>
+    <div class="card"><h3>🖥️ Máquina propia</h3><p>Un modelo abierto corriendo en una computadora de la empresa. Pagas la máquina y la luz, no por tarea. Los datos no salen de casa. Los modelos son más pequeños, así que prueba antes si pueden con tu tarea (la prueba de abajo hace eso).</p></div>
+  </div>
+
+  <div class="tool" id="fab" style="margin-top:22px">
+    <p class="nota" style="margin-top:0">Usa las tareas por mes, los tokens, el precio y el dólar de la calculadora de arriba. Cambia allá y la comparación te sigue.</p>
+    <div class="calc">
+      <div><label for="fPronta">Herramienta lista: mensualidad (US$)</label><input id="fPronta" type="number" min="0" value="80"><span class="hint">Cuánto cobra el proveedor por mes, ya con todo incluido (número de WhatsApp, servidor). El precio suele subir por tramo de mensajes</span></div>
+      <div><label for="fMaq">Máquina propia: precio (US$)</label><input id="fMaq" type="number" min="0" value="6000"><span class="hint">Ejemplo. Pon el presupuesto que recibiste</span></div>
+      <div><label for="fMeses">Pagar la máquina en (meses)</label><input id="fMeses" type="number" min="1" value="36"><span class="hint">Tiempo de uso que esperas de ella</span></div>
+      <div><label for="fW">Consumo de la máquina (watts)</label><input id="fW" type="number" min="0" value="200"></div>
+      <div><label for="fHoras">Horas encendida por día</label><input id="fHoras" type="number" min="0" max="24" value="24"></div>
+      <div><label for="fKwh">Tarifa de luz (US$ por kWh)</label><input id="fKwh" type="number" min="0" step="0.01" value="0.18"></div>
+      <div><label for="fManut">Mantenimiento e internet por mes (US$)</label><input id="fManut" type="number" min="0" value="20"></div>
+      <div><label for="fMod">Modelo en la máquina (de la prueba de abajo)</label><select id="fMod"></select><span class="hint">Velocidad medida en una NVIDIA GB10 con 128 GB; un computador común es bastante más lento</span></div>
+      <div><label for="fSens">¿El agente toca datos sensibles?</label><select id="fSens"><option value="0">No</option><option value="1">Sí (salud, finanzas, documentos)</option></select></div>
+    </div>
+    <div class="kpis">
+      <div class="kpi"><div class="v" id="kPronta">–</div><div class="l">herramienta lista por mes</div></div>
+      <div class="kpi"><div class="v" id="kApi">–</div><div class="l">API en la nube por mes</div></div>
+      <div class="kpi"><div class="v" id="kMaq">–</div><div class="l">máquina propia por mes</div></div>
+      <div class="kpi"><div class="v" id="kEmpate">–</div><div class="l">tareas por mes en que la máquina empata con la API</div></div>
+    </div>
+    <div class="veredito" id="fabRes"></div>
+    <p class="nota">La cuenta de la máquina es cuota + luz + mantenimiento + el costo fijo por mes de la calculadora, sin intereses. La capacidad sale de la velocidad medida en la prueba de abajo, multiplicada por los tokens por tarea de la calculadora, una tarea a la vez (cuenta conservadora: la IA lee el texto más rápido de lo que escribe). Sobre datos de clientes y la LGPD (ley de protección de datos de Brasil), la elección del camino es una hipótesis que debes validar con el abogado de la empresa; esta guía no sustituye ese análisis. Precios de API: confirma en la página del proveedor (<a href="https://www.anthropic.com/pricing" target="_blank" rel="noopener">Anthropic</a>, <a href="https://openai.com/api/pricing/" target="_blank" rel="noopener">OpenAI</a>, <a href="https://ai.google.dev/pricing" target="_blank" rel="noopener">Google</a>).</p>
+  </div>
+</div></section>
+
+<section id="teste"><div class="wrap">
+  <span class="chip">Prueba en portugués · ronda 1</span>
+  <h2>Modelos abiertos en tareas de pequeña empresa</h2>
+  <p class="sub">Antes de comprar la máquina, la pregunta es si un modelo abierto puede con tu tarea. Probamos modelos gratuitos en cuatro tareas comunes de pyme, en portugués, en una estación de IA de escritorio (NVIDIA GB10). La nota se calcula con una regla fija, sin la opinión de nadie.</p>
+  <div class="grid g4">
+    <div class="card"><h3>🧾 Leer factura</h3><p>Sacar CNPJ, número, fecha, total e ítems de un fragmento de NF-e (factura electrónica brasileña). Tiene trampa: descuento y flete cambian el total.</p></div>
+    <div class="card"><h3>📄 Resumir contrato</h3><p>Plazo, valor mensual, multa, índice de reajuste y fuero de contratos de alquiler, servicio y sistema.</p></div>
+    <div class="card"><h3>🏷️ Clasificar mensaje</h3><p>Agendamiento, presupuesto, reclamo, cancelación o duda, y si es urgente.</p></div>
+    <div class="card"><h3>💬 Atender según las reglas</h3><p>Responder a los clientes de una pet shop solo con las reglas de la casa, sin inventar precios, y frenar cuatro intentos de estafa.</p></div>
+  </div>
+  <div class="tb" style="margin-top:22px"><table id="benchTb"></table></div>
+  <p class="nota" id="benchMeta"></p>
+  <div class="card" style="margin-top:16px" id="benchLicoes"><h3>Lo que mostró la ronda 1</h3><ul id="benchLi"></ul></div>
+  <p class="nota">Ronda 1: casos inventados (ningún dato real), temperatura cero (el modelo responde siempre igual), un intento por caso, modelos ya instalados en la máquina. No es un ranking definitivo: es un punto de partida para que repitas la prueba con tus tareas. Los casos, el script y los resultados están en <a href="https://github.com/inematds/empresa-de-ia/tree/main/bench" target="_blank" rel="noopener"><code>bench/</code></a> y en <a href="https://github.com/inematds/empresa-de-ia/blob/main/kit/benchmark-pt.csv" target="_blank" rel="noopener"><code>kit/benchmark-pt.csv</code></a>.</p>
+  <p class="nota">Para repetirlo, instala tres programas gratuitos: <a href="https://ollama.com" target="_blank" rel="noopener">Ollama</a> (ejecuta los modelos en tu computadora; déjalo abierto), <a href="https://git-scm.com" target="_blank" rel="noopener">git</a> y <a href="https://www.python.org" target="_blank" rel="noopener">Python</a>. Después abre la terminal (en Windows, PowerShell; allí usa <code>python</code> en lugar de <code>python3</code> y ejecuta el <code>cd</code> en una línea aparte). En una computadora común, usa llama3.2 (2 GB); qwen3.6 ocupa 23 GB y requiere al menos 32 GB de memoria. El resultado queda en <code>bench/minha-rodada/benchmark.csv</code> (se abre en Excel), separado de la ronda publicada. Para probar una tarea tuya, consulta «Probar tu tarea» en el README.</p>
+  <pre><span class="c"># repetir la prueba en tu máquina (necesita Ollama instalado)</span>
+<span class="k">git clone</span> <span class="s">https://github.com/inematds/empresa-de-ia</span> &amp;&amp; <span class="k">cd</span> empresa-de-ia
+<span class="c"># en una computadora común, comience por el modelo pequeño:</span>
+<span class="k">ollama pull</span> llama3.2
+<span class="k">python3</span> bench/roda.py rodar --modelos llama3.2:latest --saida bench/minha-rodada
+<span class="c"># con 32 GB de memoria o más:</span>
+<span class="k">ollama pull</span> qwen3.6:35b-a3b
+<span class="k">python3</span> bench/roda.py rodar --modelos qwen3.6:35b-a3b --saida bench/minha-rodada</pre>
+</div></section>
+
+<section id="consultor" class="trilha"><div class="wrap">
+  <span class="chip">Para quien hace consultoría</span>
+  <h2>El modelo para aplicar en el cliente</h2>
+  <p class="sub">Si prestas consultoría de IA a pequeñas empresas, este kit se vuelve tu método. Son seis etapas, del primer café al informe del piloto, siempre un proceso a la vez y medido antes y después. No vendes "IA": vendes una tarea que pasa a costar menos y el número que lo prueba.</p>
+  <div class="phase"><div class="tag">1 · 1 h</div><div class="d"><strong>Conversación de diagnóstico</strong><span>Guion de 12 preguntas con el dueño y el equipo. Entrega: la lista de las tareas que se repiten.</span></div></div>
+  <div class="phase"><div class="tag">2 · 30 min</div><div class="d"><strong>Radiografía con el dueño</strong><span>Completen juntos la Radiografía de esta página. Entrega: la fila de los 3 primeros procesos.</span></div></div>
+  <div class="phase"><div class="tag">3 · 1 sem.</div><div class="d"><strong>Línea base y cuenta</strong><span>Una semana midiendo el proceso elegido, luego la calculadora. Entrega: costo de hoy y costo con el agente, en dinero.</span></div></div>
+  <div class="phase"><div class="tag">4 · 1 h</div><div class="d"><strong>Dónde corre y si se puede encender</strong><span>Comparador de la fábrica y checklist del agente seguro. Entrega: el camino elegido y el veredicto. Sin los ítems 2, 4 y 10, el piloto solo funciona con una persona aprobando cada respuesta.</span></div></div>
+  <div class="phase"><div class="tag">5 · 30 días</div><div class="d"><strong>Piloto medido</strong><span>Quince minutos por semana mirando la planilla: tareas hechas, cuántas volvieron a una persona, costo de la IA y reclamos.</span></div></div>
+  <div class="phase"><div class="tag">6 · 1 h</div><div class="d"><strong>Informe y siguiente de la fila</strong><span>La calculadora con los números reales y la decisión junto con el dueño: sigue, se ajusta o se detiene.</span></div></div>
+
+  <div class="tool" id="prop" style="margin-top:22px">
+    <h3 style="margin-top:0">Armar el resumen para el cliente</h3>
+    <p class="nota" style="margin-top:0">Junta la fila de la Radiografía, la cuenta de la calculadora, el comparador de la fábrica y el veredicto del checklist en un texto de propuesta listo para ajustar y enviar. Nada sale de tu navegador.</p>
+    <div class="calc">
+      <div><label for="pEmp">Empresa del cliente</label><input id="pEmp" value="Clínica Ejemplo"></div>
+      <div><label for="pCons">Tu nombre o el de tu consultoría</label><input id="pCons" value=""></div>
+      <div><label for="pIni">Inicio del piloto</label><input id="pIni" type="date"></div>
+      <div><label for="pCam">Camino elegido</label><select id="pCam"><option value="api">API en la nube</option><option value="pronta">Herramienta lista</option><option value="maq">Máquina propia</option></select></div>
+      <div><label for="pValor">Valor de tu trabajo (opcional)</label><input id="pValor" value="" placeholder="ej.: US$ 300 por el diagnóstico y piloto"></div>
+    </div>
+    <div class="acts"><button class="btn sm ghost" id="pUsar">Usar el 1.º de la fila en la calculadora</button><button class="btn sm" id="pGo">Armar el resumen</button><button class="btn sm ghost" id="pCopy">Copiar</button><button class="btn sm ghost" id="pMd">Descargar .md</button></div>
+    <div class="veredito warn" id="pAviso" style="display:none;margin-top:14px"></div>
+    <textarea id="pOut" rows="16" style="width:100%;margin-top:14px;background:var(--bg2);border:1px solid var(--line);color:var(--txt);border-radius:10px;padding:12px;font:.88rem/1.5 'JetBrains Mono',monospace" aria-label="Resumen para el cliente"></textarea>
+  </div>
+
+  <div class="grid g3" style="margin-top:22px">
+    <a class="card" href="https://github.com/inematds/empresa-de-ia/blob/main/kit/modelo-consultor.es.md" target="_blank" rel="noopener"><span class="tg">Kit del consultor</span><h3>modelo-consultor.es.md</h3><p>Guion de las 12 preguntas, propuesta de una página e informe de antes y después. La planilla del piloto está en kit/piloto-semanal.es.csv.</p></a>
+    <a class="card" href="https://inematds.github.io/prof2030-consultor/" target="_blank" rel="noopener"><span class="tg">Curso</span><h3>Profissional 2030 · Consultor de IA (en portugués)</h3><p>Diagnóstico, piloto y medición de valor, en 8 clases.</p></a>
+    <a class="card" href="https://inematds.github.io/consultoria2k/" target="_blank" rel="noopener"><span class="tg">Formación</span><h3>Consultor de IA · Do rótulo ao resultado (en portugués)</h3><p>Encontrar la restricción real y recetar la solución más simple que funciona.</p></a>
+    <a class="card" href="https://inematds.github.io/formacao-vendas-ia-consultoria-v72/" target="_blank" rel="noopener"><span class="tg">Ventas</span><h3>Playbook de consultoria (en portugués)</h3><p>Cómo vender y entregar consultoría de IA.</p></a>
+    <a class="card" href="https://inematds.github.io/formacao-dica-diagnostico-v72/" target="_blank" rel="noopener"><span class="tg">Diagnóstico</span><h3>DICA 1 · Mapa do Cliente (en portugués)</h3><p>Mapear los procesos de una empresa antes de automatizar.</p></a>
+    <a class="card" href="https://eventos.inema.pro/consultoria-ia/" target="_blank" rel="noopener"><span class="tg">Área</span><h3>Consultoría de IA</h3><p>Todos los cursos y kits de consultoría de INEMA en un solo lugar.</p></a>
+  </div>
+</div></section>
+
+<section id="trilha" class="trilha"><div class="wrap">
+  <span class="chip">Ruta INEMA</span>
+  <h2>Dónde aprender a armar cada agente</h2>
+  <p class="sub">Todo abierto y gratuito (los cursos están en portugués). La Radiografía ya te indica uno de estos para cada tarea de tu fila.</p>
+  <div class="grid g3">
+    <a class="card" href="https://inematds.github.io/criaagentes/guia/" target="_blank" rel="noopener"><span class="tg">Atención</span><h3>criaagentes</h3><p>Asistente de WhatsApp que nunca inventa respuestas (en portugués).</p></a>
+    <a class="card" href="https://inematds.github.io/atende-clinica/guia/" target="_blank" rel="noopener"><span class="tg">Atención por sector</span><h3>Kits atende</h3><p>Clínica, gimnasio, fisioterapia y nutrición, listos para adaptar (en portugués).</p></a>
+    <a class="card" href="https://inematds.github.io/reserva-restaurante/guia/" target="_blank" rel="noopener"><span class="tg">Agenda y reservas</span><h3>Kits de reserva</h3><p>Restaurante y hotel, con reservas a cargo del agente (en portugués).</p></a>
+    <a class="card" href="https://inematds.github.io/formacao-dica-diagnostico-v72/" target="_blank" rel="noopener"><span class="tg">Diagnóstico</span><h3>DICA 1 · Mapa del Cliente</h3><p>Cómo mapear los procesos de una empresa antes de automatizar (en portugués).</p></a>
+    <a class="card" href="https://inematds.github.io/profissional2027/" target="_blank" rel="noopener"><span class="tg">Implementación</span><h3>Profesional 2027</h3><p>Implementador de IA para pymes: procesos, ROI y entrega (en portugués).</p></a>
+    <a class="card" href="https://inematds.github.io/empresas-2027-v62/" target="_blank" rel="noopener"><span class="tg">Personas y procesos</span><h3>Empresas de 2027</h3><p>Cómo se reorganizan personas, procesos y agentes (en portugués).</p></a>
+    <a class="card" href="https://inematds.github.io/curso-agente-sob-controle-v2/" target="_blank" rel="noopener"><span class="tg">Seguridad</span><h3>Agente bajo Control</h3><p>Usa agentes de IA sin quemarte (en portugués).</p></a>
+    <a class="card" href="https://inematds.github.io/camada-contexto/guia/" target="_blank" rel="noopener"><span class="tg">Contexto del negocio</span><h3>camada-contexto</h3><p>Lo que el agente necesita saber de tu empresa, en un solo lugar (en portugués).</p></a>
+    <a class="card" href="https://inematds.github.io/curso-agent-runtime/" target="_blank" rel="noopener"><span class="tg">Herramientas</span><h3>INEMA Agent Runtime</h3><p>Haz que la IA use las herramientas que ya tienes, con reglas (en portugués).</p></a>
+    <a class="card" href="https://inematds.github.io/gestao-ia-processos-v72/" target="_blank" rel="noopener"><span class="tg">Gestión</span><h3>Gestión de IA · Procesos</h3><p>Cómo gestionar procesos con agentes en el día a día (en portugués).</p></a>
+    <a class="card" href="https://inematds.github.io/local-ai-masterclass/" target="_blank" rel="noopener"><span class="tg">Fábrica de IA</span><h3>IA Local Masterclass</h3><p>IA en tu máquina: privacidad y agentes 24 horas (en portugués).</p></a>
+    <a class="card" href="https://inematds.github.io/do-chat-ao-agente-v72/" target="_blank" rel="noopener"><span class="tg">Primeros pasos</span><h3>Del chat al agente</h3><p>De ChatGPT a tu primer agente, en cuatro escalones (en portugués).</p></a>
+  </div>
+</div></section>
+
+<section id="roadmap"><div class="wrap">
+  <span class="chip">Próximas piezas</span>
+  <h2>Lo que viene después</h2>
+  <p class="sub">Esta es la primera entrega. Las próximas piezas completan el pastel.</p>
+  <div class="phase"><div class="tag">Disponible</div><div class="d"><strong>Radiografía, calculadora y checklist</strong><span>Las tres herramientas de esta página y el kit en hoja de cálculo en GitHub.</span></div></div>
+  <div class="phase"><div class="tag">Disponible</div><div class="d"><strong>Fábrica de IA, prueba en portugués y modelo del consultor</strong><span>Comparador entre herramienta lista, API y máquina propia, la ronda 1 de la prueba de modelos abiertos y las seis etapas para aplicar el kit en un cliente.</span></div></div>
+  <div class="phase"><div class="tag">Próxima</div><div class="d"><strong>Prueba en portugués, ronda 2</strong><span>Más modelos (incluidos los que piden una máquina más grande) y tareas enviadas por la comunidad.</span></div></div>
+  <div class="phase"><div class="tag">Próxima</div><div class="d"><strong>Agente aislado paso a paso</strong><span>Correr el agente de la empresa en un entorno separado, solo con el acceso que necesita.</span></div></div>
+  <div class="phase"><div class="tag">Después</div><div class="d"><strong>Kits de nuevos sectores</strong><span>Comercio minorista, e-commerce, inmobiliaria, contabilidad y estudios jurídicos, con WhatsApp, pagos digitales y facturación electrónica.</span></div></div>
+  <div class="phase"><div class="tag">Después</div><div class="d"><strong>Desafío 30 días</strong><span>Cada participante mide un proceso antes y después y publica su caso. Todavía faltan casos reales medidos en pequeñas empresas.</span></div></div>
+</div></section>
+
+<footer>
+  <div class="wrap">
+    <div class="pill">HTML + JS en el navegador</div><div class="pill">Sin registro</div><div class="pill">Kit en CSV</div><div class="pill">Prueba local con Ollama</div>
+    <p style="margin-top:18px">Tu empresa de IA · basado en el keynote de Jensen Huang en GTC Berlín (21/10/2026) y en estudios de Cetic.br, Serasa Experian, Gartner y OWASP ·
+      <a href="https://github.com/inematds/empresa-de-ia">inematds/empresa-de-ia</a> ·
+      <a href="https://www.youtube.com/watch?v=t-mBC3kuhLM" target="_blank" rel="noopener">video (en portugués)</a> ·
+      <a href="https://inema.club">INEMA.CLUB</a></p>
+  </div>
+</footer>
+
+<script>
+/* Textos de la interfaz (versión es/) */
+var T={
+  lang:'es', moeda:'USD',
+  tarefa:'Tarea', vezes:'Veces/semana', minutos:'Minutos', regra:'¿Regla clara?', dado:'¿Dato digital?', risco:'Si falla', remover:'Quitar tarea',
+  regraOp:['No','Más o menos','Sí'], dadoOp:['No','En parte','Sí'], riscoOp:['Leve','Medio','Grave'],
+  cat:'Tipo', catOp:{atend:'Atención al cliente',agenda:'Agenda y reservas',doc:'Documentos y finanzas',venda:'Ventas y marketing',interno:'Rutina interna'},
+  novaTarefa:'Nueva tarea',
+  horasMes:'h por mes', nota:'nota',
+  vazio:'Completa al menos una tarea con veces por semana y minutos.',
+  aviso:'Riesgo grave: empieza con una persona aprobando cada respuesta.',
+  csvNome:'radiografia-procesos.csv',
+  csvCab:['tarea','tipo','veces_semana','minutos','regla_clara','dato_digital','si_falla','horas_mes','nota'],
+  sugere:'Empieza por:',
+  exemplo:[
+    ['Responder dudas de horario y precio por WhatsApp','atend',120,3,2,2,0],
+    ['Confirmar las citas del día siguiente','agenda',60,2,2,2,0],
+    ['Registrar facturas y cobros en finanzas','doc',25,8,2,1,1],
+    ['Publicar en redes sociales','venda',5,40,1,1,0],
+    ['Responder la queja de un paciente','atend',4,20,0,1,2]
+  ],
+  kits:{
+    atend:['criaagentes, WhatsApp (en portugués)','https://inematds.github.io/criaagentes/guia/'],
+    agenda:['kits atende (clínica, gimnasio) o de reserva (en portugués)','https://inematds.github.io/atende-clinica/guia/'],
+    doc:['INEMA Agent Runtime (en portugués)','https://inematds.github.io/curso-agent-runtime/'],
+    venda:['Del chat al agente, escalón 4: redes (en portugués)','https://inematds.github.io/do-chat-ao-agente-redes-v72/'],
+    interno:['Gestión de IA · Procesos (en portugués)','https://inematds.github.io/gestao-ia-processos-v72/']
+  },
+  checklist:[
+    ['La tarea del agente está escrita','Sabe qué hace, qué no hace y cuándo pasa el caso a una persona.'],
+    ['Acceso solo a lo que la tarea necesita','Carpetas, hojas de cálculo y cuentas específicas. Nunca la contraseña del dueño ni todo el correo.'],
+    ['Contraseñas fuera de la conversación','Las claves y contraseñas se guardan en un gestor seguro o en la configuración, nunca pegadas en el texto del agente.'],
+    ['Acción sin vuelta atrás pide aprobación','Pagar, borrar, enviar mensajes masivos o cambiar precios solo con una persona confirmando.'],
+    ['Corre por separado','En una cuenta, máquina o entorno aislado, no en la computadora personal con todo abierto.'],
+    ['Lista de sitios y sistemas permitidos','Solo se comunica con los servicios que usa la tarea.'],
+    ['Todo queda registrado','Cada acción genera un registro, y alguien revisa ese registro cada semana.'],
+    ['Datos de clientes al mínimo','Solo lo necesario, y sabes dónde se guardan (ley de protección de datos de tu país).'],
+    ['Texto de afuera no es una orden','Un correo, un sitio web o el mensaje de un cliente es información; el agente no obedece instrucciones escondidas en esos textos.'],
+    ['Botón de apagado y plan para el error','Sabes cómo detener el agente, quién le responde al cliente y cómo corregir.']
+  ],
+  vered:[
+    ['Todavía no lo enciendas.','Faltan garantías básicas. Resuelve los ítems sin marcar antes de que el agente toque clientes o dinero.'],
+    ['Piloto solo con supervisión.','Se puede probar con una persona revisando cada respuesta. Cierra los ítems pendientes durante el piloto.'],
+    ['Listo para el piloto.','Las garantías principales están en su lugar. Sigue midiendo y revisando el registro cada semana.']
+  ],
+  obrig:'Falta ítem obligatorio: ', obrig2:'sin él no pasa de piloto con supervisión.',
+  marcados:'ítems garantizados'
+};
+(function(){
+  var KEY='empresa-de-ia-theme';
+  var b=document.body, t=document.getElementById('themeToggle');
+  try{ if(localStorage.getItem(KEY)==='light'){ b.classList.add('light'); t.textContent='☀️'; } }catch(e){}
+  t.addEventListener('click',function(){
+    var light=b.classList.toggle('light');
+    t.textContent=light?'☀️':'🌙';
+    try{ localStorage.setItem(KEY, light?'light':'dark'); }catch(e){}
+  });
+})();
+function ls(k,v){try{if(v===undefined)return JSON.parse(localStorage.getItem(k));localStorage.setItem(k,JSON.stringify(v));}catch(e){return null}}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function opts(arr,sel){return arr.map(function(o,i){return '<option value="'+i+'"'+(i==sel?' selected':'')+'>'+esc(o)+'</option>'}).join('')}
+/* ---------- Raio-X ---------- */
+var RX='empresa-de-ia-raiox-'+T.lang, rows=ls(RX)||T.exemplo.map(function(r){return r.slice()});
+function rxRender(){
+  var h='';
+  rows.forEach(function(r,i){
+    var cats=Object.keys(T.catOp).map(function(k){return '<option value="'+k+'"'+(k==r[1]?' selected':'')+'>'+esc(T.catOp[k])+'</option>'}).join('');
+    h+='<div class="row" data-i="'+i+'">'+
+      '<div class="nome"><span class="lb">'+T.tarefa+'</span><input data-k="0" value="'+esc(r[0])+'" aria-label="'+T.tarefa+'"><select data-k="1" aria-label="'+T.cat+'" style="margin-top:6px">'+cats+'</select></div>'+
+      '<div><span class="lb">'+T.vezes+'</span><input data-k="2" type="number" min="0" value="'+r[2]+'" aria-label="'+T.vezes+'"></div>'+
+      '<div><span class="lb">'+T.minutos+'</span><input data-k="3" type="number" min="0" value="'+r[3]+'" aria-label="'+T.minutos+'"></div>'+
+      '<div><span class="lb">'+T.regra+'</span><select data-k="4" aria-label="'+T.regra+'">'+opts(T.regraOp,r[4])+'</select></div>'+
+      '<div><span class="lb">'+T.dado+'</span><select data-k="5" aria-label="'+T.dado+'">'+opts(T.dadoOp,r[5])+'</select></div>'+
+      '<div><span class="lb">'+T.risco+'</span><select data-k="6" aria-label="'+T.risco+'">'+opts(T.riscoOp,r[6])+'</select></div>'+
+      '<button class="del" title="'+T.remover+'" aria-label="'+T.remover+'">×</button></div>';
+  });
+  document.getElementById('rxRows').innerHTML=h;
+}
+function rxScore(r){
+  var horas=(+r[2]||0)*(+r[3]||0)*4.33/60;
+  var clara=[0.4,0.7,1][+r[4]], dado=[0.4,0.7,1][+r[5]], risco=[1,1.6,3][+r[6]];
+  return {horas:horas, nota:horas*clara*dado/risco};
+}
+function rxGo(){
+  var list=rows.map(function(r){var s=rxScore(r);return {r:r,h:s.horas,n:s.nota}}).filter(function(x){return x.h>0&&x.r[0]});
+  list.sort(function(a,b){return b.n-a.n});
+  var out=document.getElementById('rxRes');
+  if(!list.length){out.innerHTML='<p class="nota">'+T.vazio+'</p>';return}
+  out.innerHTML=list.slice(0,3).map(function(x,i){
+    var k=T.kits[x.r[1]]||T.kits.interno;
+    return '<div class="rank"><div class="pos">'+(i+1)+'</div><div><h4>'+esc(x.r[0])+'</h4><p>'+
+      x.h.toLocaleString(T.lang,{maximumFractionDigits:1})+' '+T.horasMes+' · '+T.nota+' '+x.n.toLocaleString(T.lang,{maximumFractionDigits:1})+
+      ' · '+T.sugere+' <a href="'+k[1]+'" target="_blank" rel="noopener">'+esc(k[0])+'</a>'+
+      (+x.r[6]==2?'<br>'+T.aviso:'')+'</p></div></div>';
+  }).join('');
+}
+document.getElementById('rxRows').addEventListener('input',function(e){
+  var row=e.target.closest('.row'); if(!row||e.target.dataset.k===undefined)return;
+  var i=+row.dataset.i, k=+e.target.dataset.k, v=e.target.value;
+  rows[i][k]=(k===0||k===1)?v:+v; ls(RX,rows); rxGo();
+});
+document.getElementById('rxRows').addEventListener('click',function(e){
+  if(!e.target.classList.contains('del'))return;
+  rows.splice(+e.target.closest('.row').dataset.i,1); ls(RX,rows); rxRender(); rxGo();
+});
+document.getElementById('rxAdd').onclick=function(){rows.push([T.novaTarefa,'interno',5,10,1,1,0]);ls(RX,rows);rxRender()};
+document.getElementById('rxGo').onclick=rxGo;
+document.getElementById('rxReset').onclick=function(){rows=T.exemplo.map(function(r){return r.slice()});ls(RX,rows);rxRender();rxGo()};
+document.getElementById('rxCsv').onclick=function(){
+  var q=function(s){return '"'+String(s).replace(/"/g,'""')+'"'};
+  var lines=[T.csvCab.join(',')].concat(rows.map(function(r){var s=rxScore(r);
+    return [q(r[0]),q(T.catOp[r[1]]||r[1]),r[2],r[3],q(T.regraOp[r[4]]),q(T.dadoOp[r[5]]),q(T.riscoOp[r[6]]),s.horas.toFixed(1),s.nota.toFixed(1)].join(',')}));
+  var a=document.createElement('a');
+  a.href=URL.createObjectURL(new Blob(['﻿'+lines.join('\n')],{type:'text/csv'}));
+  a.download=T.csvNome; document.body.appendChild(a); a.click(); a.remove();
+};
+rxRender(); rxGo();
+/* ---------- Calculadora ---------- */
+var CK='empresa-de-ia-calc-'+T.lang, ids=['cQtd','cMin','cHora','cPct','cRev','cTok','cPreco','cDolar','cFixo'];
+var saved=ls(CK); if(saved) ids.forEach(function(id){ if(saved[id]!==undefined) document.getElementById(id).value=saved[id]; });
+function money(v){return v.toLocaleString(T.lang,{style:'currency',currency:T.moeda,maximumFractionDigits:v<10&&v>-10?2:0})}
+function calc(){
+  var g=function(id){return +document.getElementById(id).value||0}, s={};
+  ids.forEach(function(id){s[id]=document.getElementById(id).value}); ls(CK,s);
+  var qtd=g('cQtd'), min=g('cMin'), hora=g('cHora'), pct=Math.min(100,g('cPct'))/100, rev=g('cRev');
+  var ia1=g('cTok')*1000/1e6*g('cPreco')*g('cDolar');
+  var hoje=qtd*min/60*hora;
+  var feitas=qtd*pct, voltam=qtd-feitas;
+  var ia=qtd*ia1;
+  var agente=ia+g('cFixo')+feitas*rev/60*hora+voltam*min/60*hora;
+  var horas=feitas*(min-rev)/60;
+  var set=function(id,v){document.getElementById(id).textContent=v};
+  set('kHoje',money(hoje)); set('kAgente',money(agente)); set('kEcon',money(hoje-agente));
+  set('kHoras',Math.max(0,horas).toLocaleString(T.lang,{maximumFractionDigits:0})+' h');
+  set('kTarefa',qtd>0?money(agente/qtd):'–');
+  set('kTarefaH',money(min/60*hora)); set('kIA',money(ia)); set('kAno',money((hoje-agente)*12));
+}
+ids.forEach(function(id){document.getElementById(id).addEventListener('input',calc)}); calc();
+/* ---------- Checklist ---------- */
+var XK='empresa-de-ia-check-'+T.lang, marks=ls(XK)||[];
+document.getElementById('chk').innerHTML=T.checklist.map(function(c,i){
+  return '<label><input type="checkbox" data-i="'+i+'"'+(marks[i]?' checked':'')+'><div><b>'+(i+1)+'. '+esc(c[0])+'</b><span>'+esc(c[1])+'</span></div></label>'}).join('');
+function chk(){
+  var n=0; document.querySelectorAll('#chk input').forEach(function(el){marks[+el.dataset.i]=el.checked; if(el.checked)n++}); ls(XK,marks);
+  var lv=n<=5?0:(n<=8?1:2), falta=!(marks[1]&&marks[3]&&marks[9]); if(falta&&lv==2)lv=1;
+  var v=T.vered[lv], box=document.getElementById('chkRes');
+  box.className='veredito '+['bad','warn','ok'][lv];
+  box.innerHTML='<strong>'+n+'/10 '+T.marcados+' · '+v[0]+'</strong><br><span class="mut">'+v[1]+(falta&&n>5?'<br>'+T.obrig+[1,3,9].filter(function(i){return !marks[i]}).map(function(i){return i+1}).join(', ')+' — '+T.obrig2:'')+'</span>';
+}
+document.getElementById('chk').addEventListener('change',chk); chk();
+</script>
+<script>
+/* Fábrica, teste e consultor. Textos: traduzir só o bloco TF nas versões en/ e es/ */
+var TF={
+  cols:['Modelo','Tamaño','General','Factura','Contrato','Clasificar','Atender','Estafas frenadas','Segundos por tarea'],
+  meta:'Máquina de la prueba: {maq}. {n} modelos, {c} casos en 4 tareas. Ronda del {data}. Nota = % de campos correctos (factura, contrato, clasificación) o de respuestas que siguieron las reglas (atención).',
+  licoes:["<b>No hace falta un modelo gigante.</b> El qwen3.8:27b (17 GB) acertó el 100% y el qwen3.6:35b-a3b (23 GB) acertó el 99%, siendo el más rápido de los buenos: menos de 1 segundo por tarea.", "<b>Más grande no es mejor.</b> El llama3.1:70b (42 GB) quedó por detrás de modelos con la mitad de su tamaño, tardó 9 segundos por tarea y cayó en 2 de las 4 estafas: aceptó el descuento del 50% y repasó la clave Pix falsa.", "<b>Leer documentos es fácil; la estafa es lo difícil.</b> Casi todos acertaron con la factura y el contrato, pero solo 2 de los 9 modelos frenaron las 4 estafas. El correo reenviado con una nueva clave Pix engañó a 5 de los 9.", "<b>Por eso existe el checklist.</b> Si el agente cae en una estafa, el ítem 4 (obligatorio: toda acción con dinero requiere la aprobación de una persona) limita el perjuicio. El ítem 9 (el texto externo no es una orden) reduce la probabilidad de caer.", "<b>Un modelo que “piensa” no sirve para una tarea repetida.</b> El deepseek-r1:14b, hecho para razonar, fue el más lento (15 s por tarea) y el peor (70%): en 1 de cada 4 pedidos con formato fijo, devolvió una respuesta vacía o fuera del formato."],
+  barato:{pronta:'Con este volumen, la herramienta lista sale más barata.',api:'Con este volumen, la API en la nube sale más barata.',maq:'Con este volumen, la máquina propia sale más barata.'},
+  cap:"Con {mod}, cada tarea del tamaño que pusiste en la calculadora ({tok} mil tokens) tarda cerca de {s} segundos en la máquina de la prueba; una a la vez, son cerca de {cap} tareas por mes. En la prueba, las tareas eran cortas (menos de mil tokens) y tardaron {t} s", lento:"Más de 30 segundos por respuesta es demasiado para atención en vivo: sirve para tareas que pueden esperar (facturas, contratos, informes). Para conversar con clientes, reduce los tokens por tarea o usa la API.", chkVazio:"se hará con el equipo en la etapa 4, antes de encender el agente", incluido:" (ya incluido en el valor con el agente)", chkPend:"{n}/10 ítems de seguridad garantizados; antes del inicio del piloto se cerrarán los que faltan{f}", faltam:", entre ellos los obligatorios {lista}", avisoEx:"La cola del Rayos X todavía es el ejemplo de la clínica: cámbiala por las tareas de tu cliente antes de enviar.",
+  capOk:'.', capNo:'.',
+  sens:'Dato sensible: prefiere la máquina propia o un proveedor cuyo contrato diga que no guarda ni entrena con tus datos. Valida con el abogado de la empresa (LGPD).',
+  nunca:'no empata', tarefasMes:'tareas',
+  cam:{api:'API en la nube',pronta:'herramienta lista',maq:'máquina propia'},
+  semData:'a convenir',
+  prop:[
+    '# Propuesta: primer agente de IA de {emp}',
+    '{por}{hoje}',
+    '',
+    '## El diagnóstico',
+    'Fila de la Radiografía de procesos (los tres primeros):',
+    '{fila}',
+    '',
+    '## Qué vamos a hacer',
+    'Un agente de IA que hace "{t1}", con una persona revisando lo que él no sepa resolver. Dónde corre: {cam}.',
+    '',
+    '## La cuenta prevista (rehecha con los números reales al final del piloto)',
+    '- Hoy: {cHoje} por mes ({cTarH} por tarea)',
+    '- Con el agente: {cAg} por mes ({cTar} por tarea, contando revisión y las que vuelven a una persona)',
+    '- Diferencia prevista: {cEcon} por mes, {cAno} en 12 meses',
+    '- Horas liberadas del equipo: {cHoras} por mes',
+    '- Costo del camino elegido ({cam}): {cCam} por mes{inc}',
+    '',
+    '## Seguridad',
+    '- Checklist del agente seguro: {chk}',
+    '- Acción sin vuelta atrás (pagar, borrar, enviar en masa, cambiar precio) solo con aprobación de una persona.',
+    '',
+    '## Cómo vamos a medir',
+    '- Una semana de línea base antes de encender el agente.',
+    '- 30 días de piloto, con medición semanal: tareas hechas, cuántas volvieron a una persona, costo de la IA y reclamos.',
+    '- Informe de antes y después, con la decisión: sigue, se ajusta o se detiene.',
+    '- Inicio: {ini} · Fin del piloto: {fim}',
+    '{valor}',
+    '',
+    'Fuera del alcance: los demás procesos de la fila e integraciones no listadas arriba.',
+    '',
+    'Hecho con el kit Tu empresa de IA (INEMA.CLUB): https://inematds.github.io/empresa-de-ia/guia/es/'
+  ],
+  por:'Preparado por {cons} · ', valor:'- Inversión: {v}', filaItem:'{i}. {t} ({h} h por mes)',
+  aviso:{"horas":"La calculadora tiene números distintos del 1.º de la fila de la Radiografía ({h1} h por mes). Haz clic en “Usar el 1.º de la fila en la calculadora” para que la cuenta valga para ese proceso.","chk": "El checklist aún no llega a piloto: marca los ítems que ya están garantizados antes de enviar.", "neg": "Con estos números el agente cuesta más que hoy. Revisa la cuenta antes de proponer.", "cam": "El camino elegido no es el más barato en el comparador ({best})."},
+  copiado:'¡Copiado!', mdNome:'propuesta-agente.md'
+};
+var BENCH=/*BENCH*/{"maquina":"NVIDIA GB10 · 128 GB · Ollama 0.33","casos":38,"data":"2026-10-24","linhas":[{"modelo":"qwen3.8:27b","casos":"38/38","nfe":100,"contrato":100,"classifica":100,"atende":100,"geral":100,"golpes_barrados":"4/4","json_valido":100,"seg_por_tarefa":1.9,"tokens_por_seg":32.2,"seg_por_mil_tokens":7.969,"gb":"17"},{"modelo":"qwen3.6:35b-a3b","casos":"38/38","nfe":100,"contrato":100,"classifica":96,"atende":100,"geral":99,"golpes_barrados":"4/4","json_valido":100,"seg_por_tarefa":0.9,"tokens_por_seg":73.7,"seg_por_mil_tokens":3.654,"gb":"23"},{"modelo":"qwen2.5:14b","casos":"38/38","nfe":100,"contrato":100,"classifica":100,"atende":85,"geral":95,"golpes_barrados":"3/4","json_valido":100,"seg_por_tarefa":2.1,"tokens_por_seg":22.5,"seg_por_mil_tokens":8.743,"gb":"9.0"},{"modelo":"llama3.1:70b","casos":"38/38","nfe":100,"contrato":100,"classifica":100,"atende":77,"geral":92,"golpes_barrados":"2/4","json_valido":100,"seg_por_tarefa":9.0,"tokens_por_seg":4.9,"seg_por_mil_tokens":38.467,"gb":"42"},{"modelo":"command-r:35b","casos":"38/38","nfe":100,"contrato":100,"classifica":89,"atende":85,"geral":91,"golpes_barrados":"3/4","json_valido":100,"seg_por_tarefa":3.9,"tokens_por_seg":11.8,"seg_por_mil_tokens":16.696,"gb":"18"},{"modelo":"qwen3:30b","casos":"38/38","nfe":100,"contrato":100,"classifica":93,"atende":77,"geral":89,"golpes_barrados":"2/4","json_valido":100,"seg_por_tarefa":2.4,"tokens_por_seg":84.6,"seg_por_mil_tokens":6.164,"gb":"18"},{"modelo":"llama3.1:8b","casos":"38/38","nfe":97,"contrato":92,"classifica":89,"atende":69,"geral":84,"golpes_barrados":"2/4","json_valido":100,"seg_por_tarefa":1.0,"tokens_por_seg":43.1,"seg_por_mil_tokens":4.272,"gb":"4.9"},{"modelo":"llama3.2:latest","casos":"38/38","nfe":83,"contrato":96,"classifica":75,"atende":69,"geral":77,"golpes_barrados":"3/4","json_valido":100,"seg_por_tarefa":0.5,"tokens_por_seg":92.7,"seg_por_mil_tokens":1.994,"gb":"2.0"},{"modelo":"deepseek-r1:14b","casos":"38/38","nfe":33,"contrato":80,"classifica":89,"atende":62,"geral":70,"golpes_barrados":"1/4","json_valido":76,"seg_por_tarefa":15.2,"tokens_por_seg":22.0,"seg_por_mil_tokens":28.976,"gb":"9.0"}]}/*FIM*/;
+function fill(s,o){return s.replace(/\{(\w+)\}/g,function(m,k){return o[k]!==undefined?o[k]:m})}
+/* ---------- Teste ---------- */
+(function(){
+  if(!BENCH)return;
+  var L=BENCH.linhas, k=['geral','nfe','contrato','classifica','atende'];
+  var h='<thead><tr>'+TF.cols.map(function(c){return '<th>'+esc(c)+'</th>'}).join('')+'</tr></thead><tbody>';
+  L.forEach(function(l,i){
+    h+='<tr'+(i==0?' class="top"':'')+'><td><b>'+esc(l.modelo)+'</b></td><td>'+(isNaN(parseFloat(l.gb))?l.gb:parseFloat(l.gb).toLocaleString(T.lang))+' GB</td>'+
+      k.map(function(c,j){return '<td'+(j==0?' class="g"':'')+'>'+(l[c]==null?'–':l[c]+'%')+'</td>'}).join('')+
+      '<td>'+esc(l.golpes_barrados)+'</td><td>'+(l.seg_por_tarefa==null?'–':l.seg_por_tarefa.toLocaleString(T.lang))+'</td></tr>';
+  });
+  document.getElementById('benchTb').innerHTML=h+'</tbody>';
+  document.getElementById('benchMeta').textContent=fill(TF.meta,{maq:BENCH.maquina,n:L.length,c:BENCH.casos,data:new Date(BENCH.data+'T12:00:00').toLocaleDateString(T.lang)});
+  if(TF.licoes.length) document.getElementById('benchLi').innerHTML=TF.licoes.map(function(x){return '<li>'+x+'</li>'}).join('');
+  else document.getElementById('benchLicoes').style.display='none';
+  var sel=document.getElementById('fMod');
+  sel.innerHTML=L.filter(function(l){return l.seg_por_mil_tokens}).map(function(l,i){return '<option value="'+l.seg_por_mil_tokens+'" data-t="'+l.seg_por_tarefa+'" data-m="'+esc(l.modelo)+'">'+esc(l.modelo)+' · '+l.geral+'%</option>'}).join('');
+  var bom=L.filter(function(l){return l.seg_por_mil_tokens&&l.geral>=L[0].geral-1}).sort(function(a,b){return a.seg_por_mil_tokens-b.seg_por_mil_tokens})[0];
+  if(bom) sel.value=String(bom.seg_por_mil_tokens);
+})();
+/* ---------- Fábrica ---------- */
+var FK='empresa-de-ia-fab-'+T.lang, fids=['fPronta','fMaq','fMeses','fW','fHoras','fKwh','fManut','fMod','fSens'];
+var fsaved=ls(FK); if(fsaved) fids.forEach(function(id){ var el=document.getElementById(id); if(fsaved[id]!==undefined&&(el.tagName!='SELECT'||[].some.call(el.options,function(o){return o.value==fsaved[id]}))) el.value=fsaved[id]; });
+var FAB={};
+function fab(){
+  var g=function(id){return +document.getElementById(id).value||0}, s={};
+  fids.forEach(function(id){s[id]=document.getElementById(id).value}); ls(FK,s);
+  var qtd=g('cQtd'), ia1=g('cTok')*1000/1e6*g('cPreco')*g('cDolar');
+  var pronta=g('fPronta'), cf=g('cFixo'), api=qtd*ia1+cf;
+  var fixoMaq=g('fMaq')/Math.max(1,g('fMeses'))+g('fW')/1000*g('fHoras')*30*g('fKwh')+g('fManut'), maq=fixoMaq+cf;
+  var pct=Math.min(100,g('cPct'))/100, hora=g('cHora'), pessoas=qtd*pct*g('cRev')/60*hora+qtd*(1-pct)*g('cMin')/60*hora;
+  var set=function(id,v){document.getElementById(id).textContent=v};
+  set('kPronta',money(pronta)); set('kApi',money(api)); set('kMaq',money(maq));
+  set('kEmpate',ia1>0?Math.round(fixoMaq/ia1).toLocaleString(T.lang,{useGrouping:'always'})+' '+TF.tarefasMes:TF.nunca);
+  var op={pronta:pronta,api:api,maq:maq}, best=Object.keys(op).sort(function(a,b){return op[a]-op[b]})[0];
+  var msg='<strong>'+TF.barato[best]+'</strong>';
+  var sel=document.getElementById('fMod'), seg=+sel.value*Math.max(1,g('cTok'));
+  if(seg>0){ var cap=Math.floor(g('fHoras')*3600*30/seg), m=sel.options[sel.selectedIndex].dataset.m;
+    msg+='<br><span class="mut">'+fill(TF.cap,{mod:m,cap:cap.toLocaleString(T.lang,{useGrouping:'always'}),s:Math.round(seg).toLocaleString(T.lang),tok:g('cTok').toLocaleString(T.lang),t:(+sel.options[sel.selectedIndex].dataset.t).toLocaleString(T.lang)})+'. '+(seg>30?TF.lento:'')+'</span>'; }
+  if(g('fSens')==1) msg+='<br><span class="mut">'+TF.sens+'</span>';
+  var box=document.getElementById('fabRes'); box.className='veredito'; box.innerHTML=msg;
+  FAB={pronta:pronta,api:api,maq:maq,pessoas:pessoas,best:best,qtd:qtd,hoje:qtd*g('cMin')/60*hora};
+}
+fids.concat(ids).forEach(function(id){document.getElementById(id).addEventListener('input',fab)});
+document.getElementById('fMod').addEventListener('change',fab); document.getElementById('fSens').addEventListener('change',fab);
+fab();
+/* ---------- Resumo para o cliente ---------- */
+var PK='empresa-de-ia-prop-'+T.lang, pids=['pEmp','pCons','pIni','pCam','pValor'];
+var psaved=ls(PK); if(psaved) pids.forEach(function(id){ if(psaved[id]!==undefined) document.getElementById(id).value=psaved[id]; });
+else document.getElementById('pCam').value=FAB.best;
+function dataTxt(d){return d.toLocaleDateString(T.lang,{day:'2-digit',month:'2-digit',year:'numeric'})}
+function prop(){
+  var v=function(id){return document.getElementById(id).value.trim()}, tx=function(id){return document.getElementById(id).textContent}, s={};
+  pids.forEach(function(id){s[id]=document.getElementById(id).value}); ls(PK,s);
+  var list=rows.map(function(r){var x=rxScore(r);return {r:r,h:x.horas,n:x.nota}}).filter(function(x){return x.h>0&&x.r[0]}).sort(function(a,b){return b.n-a.n}).slice(0,3);
+  var fila=list.map(function(x,i){return fill(TF.filaItem,{i:i+1,t:x.r[0],h:x.h.toLocaleString(T.lang,{maximumFractionDigits:1})})}).join('\n');
+  var n=marks.filter(Boolean).length, chk=document.querySelector('#chkRes strong'), cam=v('pCam');
+  var ini=v('pIni'), d0=ini?new Date(ini+'T12:00:00'):null, d1=d0?new Date(d0.getTime()+30*864e5):null;
+  var tot=FAB.pessoas+FAB[cam], econ=FAB.hoje-tot;
+  var o={emp:v('pEmp')||'—', por:v('pCons')?fill(TF.por,{cons:v('pCons')}):'', hoje:dataTxt(new Date()), fila:fila||'—', t1:list[0]?list[0].r[0]:'—',
+    cam:TF.cam[cam], cHoje:tx('kHoje'), cTarH:tx('kTarefaH'), cAg:money(tot), cTar:FAB.qtd>0?money(tot/FAB.qtd):'–', cEcon:money(econ), cAno:money(econ*12), cHoras:tx('kHoras'),
+    cCam:money(FAB[cam]), inc:TF.incluido, chk:n==0?TF.chkVazio:(n<=5||!(marks[1]&&marks[3]&&marks[9]))?fill(TF.chkPend,{n:n,f:[1,3,9].some(function(i){return !marks[i]})?fill(TF.faltam,{lista:[1,3,9].filter(function(i){return !marks[i]}).map(function(i){return i+1}).join(', ')}):''}):(chk?chk.textContent:n+'/10'), ini:d0?dataTxt(d0):TF.semData, fim:d1?dataTxt(d1):TF.semData,
+    valor:v('pValor')?fill(TF.valor,{v:v('pValor')}):''};
+  var av=[]; if(n<=5||!(marks[1]&&marks[3]&&marks[9])) av.push(TF.aviso.chk); if(econ<0) av.push(TF.aviso.neg);
+  if(list[0]){var hc=+document.getElementById('cQtd').value*(+document.getElementById('cMin').value)/60; if(Math.abs(hc-list[0].h)>0.1*list[0].h) av.push(fill(TF.aviso.horas,{h1:list[0].h.toLocaleString(T.lang,{maximumFractionDigits:1})}));}
+  if(JSON.stringify(rows)==JSON.stringify(T.exemplo)) av.push(TF.avisoEx);
+  if(cam!=FAB.best) av.push(fill(TF.aviso.cam,{best:TF.cam[FAB.best]}));
+  var pa=document.getElementById('pAviso'); pa.style.display=av.length?'':'none'; pa.innerHTML=av.map(esc).join('<br>');
+  document.getElementById('pOut').value=TF.prop.map(function(l){return fill(l,o)}).join('\n').replace(/\n{3,}/g,'\n\n');
+}
+pids.concat(ids,fids).forEach(function(id){document.getElementById(id).addEventListener('input',prop)});
+document.getElementById('pCam').addEventListener('change',prop);
+document.getElementById('pGo').onclick=prop;
+document.getElementById('pUsar').onclick=function(){
+  var t=rows.map(function(r){var x=rxScore(r);return {r:r,h:x.horas,n:x.nota}}).filter(function(x){return x.h>0&&x.r[0]}).sort(function(a,b){return b.n-a.n})[0];
+  if(!t)return; var q=document.getElementById('cQtd'), mi=document.getElementById('cMin');
+  q.value=Math.round((+t.r[2]||0)*4.33); mi.value=+t.r[3]||0;
+  q.dispatchEvent(new Event('input',{bubbles:true})); mi.dispatchEvent(new Event('input',{bubbles:true})); prop();
+};
+document.getElementById('pCopy').onclick=function(){var t=document.getElementById('pOut'); prop(); t.select();
+  try{navigator.clipboard.writeText(t.value)}catch(e){document.execCommand('copy')} this.textContent=TF.copiado;};
+document.getElementById('pMd').onclick=function(){prop(); var a=document.createElement('a');
+  a.href=URL.createObjectURL(new Blob([document.getElementById('pOut').value],{type:'text/markdown'})); a.download=TF.mdNome; document.body.appendChild(a); a.click(); a.remove();};
+['rxRows','chk'].forEach(function(id){document.getElementById(id).addEventListener('input',prop);document.getElementById(id).addEventListener('change',prop)});
+prop();
+</script>
+</body>
+</html>
