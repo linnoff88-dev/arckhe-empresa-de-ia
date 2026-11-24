@@ -1,6 +1,6 @@
 # Modelo do consultor: aplicar o kit "Sua empresa de IA" num cliente
 
-Para quem faz consultoria de IA em pequena e média empresa. São 6 etapas, do primeiro café ao relatório do piloto de 30 dias, usando as ferramentas do guia (https://inematds.github.io/empresa-de-ia/guia/).
+Para quem faz consultoria de IA em pequena e média empresa. São 6 etapas, do primeiro café ao relatório do piloto de 30 dias, usando as ferramentas do guia (https://linnoff88-dev.github.io/
 A regra de fundo: **um processo de cada vez, medido antes e depois**. Você não vende "IA"; vende uma tarefa que passa a custar menos e um número que prova isso.
 
 ## As 6 etapas
@@ -103,10 +103,10 @@ O guia tem o botão **Montar o resumo para o cliente**, que preenche este texto 
 > - Decisão: [segue / ajusta / para] — porque [MOTIVO].
 > - Próximo da fila: [TAREFA 2].
 
-## Para aprofundar (cursos e kits abertos do INEMA)
+## Para aprofundar (cursos e kits abertos do ARCKHÉ)
 
-- Profissional 2030 · Consultor de IA (diagnóstico, piloto e medição de valor): https://inematds.github.io/prof2030-consultor/
-- Consultor de IA · Do rótulo ao resultado: https://inematds.github.io/consultoria2k/
-- Vendas com IA · Playbook de consultoria: https://inematds.github.io/formacao-vendas-ia-consultoria-v72/
-- DICA 1 · Mapa do Cliente (diagnóstico): https://inematds.github.io/formacao-dica-diagnostico-v72/
-- Área Consultoria de IA (cursos e kits): https://eventos.inema.pro/consultoria-ia/
+- Profissional 2030 · Consultor de IA (diagnóstico, piloto e medição de valor): https://linnoff88-dev.github.io/
+- Consultor de IA · Do rótulo ao resultado: https://linnoff88-dev.github.io/
+- Vendas com IA · Playbook de consultoria: https://linnoff88-dev.github.io/
+- DICA 1 · Mapa do Cliente (diagnóstico): https://linnoff88-dev.github.io/
+- Área Consultoria de IA (cursos e kits): https://eventos.ARCKHÉ.pro/consultoria-ia/

@@ -1,6 +1,6 @@
 # Consultant's model: applying the "Your AI company" kit to a client
 
-For people who do AI consulting for small and medium-sized businesses. There are 6 steps, from the first coffee to the 30-day pilot report, using the tools in the guide (https://inematds.github.io/empresa-de-ia/guia/en/).
+For people who do AI consulting for small and medium-sized businesses. There are 6 steps, from the first coffee to the 30-day pilot report, using the tools in the guide (https://linnoff88-dev.github.io/
 The underlying rule: **one process at a time, measured before and after**. You don't sell "AI"; you sell a task that starts costing less and a number that proves it.
 
 ## The 6 steps
@@ -103,10 +103,10 @@ The guide has the **Build the summary** button, which fills in this text with th
 > - Decision: [continue / adjust / stop] — because [REASON].
 > - Next in the queue: [TASK 2].
 
-## Go deeper (open INEMA courses and kits)
+## Go deeper (open ARCKHÉ courses and kits)
 
-- Professional 2030 · AI Consultant (diagnosis, pilot and value measurement) (in Portuguese): https://inematds.github.io/prof2030-consultor/
-- AI Consultant · From label to result (in Portuguese): https://inematds.github.io/consultoria2k/
-- Sales with AI · Consulting playbook (in Portuguese): https://inematds.github.io/formacao-vendas-ia-consultoria-v72/
-- DICA 1 · Client Map (diagnosis) (in Portuguese): https://inematds.github.io/formacao-dica-diagnostico-v72/
-- AI Consulting area (courses and kits): https://eventos.inema.pro/consultoria-ia/en/
+- Professional 2030 · AI Consultant (diagnosis, pilot and value measurement) (in Portuguese): https://linnoff88-dev.github.io/
+- AI Consultant · From label to result (in Portuguese): https://linnoff88-dev.github.io/
+- Sales with AI · Consulting playbook (in Portuguese): https://linnoff88-dev.github.io/
+- DICA 1 · Client Map (diagnosis) (in Portuguese): https://linnoff88-dev.github.io/
+- AI Consulting area (courses and kits): https://eventos.ARCKHÉ.pro/consultoria-ia/en/

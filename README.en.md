@@ -1,16 +1,16 @@
 # Your AI company
 
-[![Your AI company](guia/assets/banner-en.jpg)](https://inematds.github.io/empresa-de-ia/guia/en/)
+[![Your AI company](guia/assets/banner-en.jpg)](https://linnoff88-dev.github.io/
 
 **🇧🇷 [Português](README.md) · 🇺🇸 [English](README.en.md) · 🇪🇸 [Español](README.es.md)**
 
 ## What it is
 
-This is a free kit for owners of small and medium-sized businesses who want to move beyond casual ChatGPT use and put an AI agent to work on a real process. The tools run in the browser, with no sign-up: the Process X-ray shows where to start, the calculator shows what it costs and what it returns, the checklist tells you whether the agent is safe to switch on, and the factory comparator shows whether a ready-made tool, an API, or your own machine is the better fit, along with a test of open models in Portuguese. Consultants get a template to apply all of this to a client. After that, the path leads to INEMA's courses and kits for building each agent. All you need is a browser; nothing leaves your computer.
+This is a free kit for owners of small and medium-sized businesses who want to move beyond casual ChatGPT use and put an AI agent to work on a real process. The tools run in the browser, with no sign-up: the Process X-ray shows where to start, the calculator shows what it costs and what it returns, the checklist tells you whether the agent is safe to switch on, and the factory comparator shows whether a ready-made tool, an API, or your own machine is the better fit, along with a test of open models in Portuguese. Consultants get a template to apply all of this to a client. After that, the path leads to ARCKHÉ's courses and kits for building each agent. All you need is a browser; nothing leaves your computer.
 
 ## 📖 Usage guide
 
-Complete guide with the interactive tools: **https://inematds.github.io/empresa-de-ia/guia/en/**
+Complete guide with the interactive tools: **https://linnoff88-dev.github.io/
 
 ## Where it comes from
 
@@ -22,7 +22,7 @@ In Berlin (GTC, 10/21/2026), Jensen Huang said that every company will become an
 | Models | which AI does each task and what it costs | Cost calculator |
 | AI factory | ready-made tool, API, or your own machine | Factory comparator + Portuguese test |
 | Computers | isolated agent, minimum access | Safe agent checklist |
-| Energy | people, data, context | INEMA path |
+| Energy | people, data, context | ARCKHÉ path |
 
 ## What's in the repository
 
@@ -45,7 +45,7 @@ bench/resultados/               # each model's answers and resumo.json
 1. 🧠 **X-ray**: the owner lists the tasks that repeat and gets the queue of the top 3 processes (guide, step 1).
 2. 🧠 **Cost**: calculates cost today × cost with an agent and the cost per completed task (guide, step 2).
 3. 🧠 **Security**: ticks the checklist; below 6 items, don't switch it on (guide, step 3).
-4. 🧠 **30-day pilot** with the recommended INEMA kit, noting every week the tasks, hand-backs to a person, AI cost, and complaints.
+4. 🧠 **30-day pilot** with the recommended ARCKHÉ kit, noting every week the tasks, hand-backs to a person, AI cost, and complaints.
 5. 🧠 **Measure**: redo the calculator with the real numbers; if it worked, move on to the next in the queue.
 6. 🧠 **Factory**: the comparator shows the monthly cost of the ready-made tool, the API, and your own machine, and how many tasks the machine can handle (guide, Factory section).
 7. 🧠 **Consulting**: anyone serving clients follows the 6 steps in `kit/modelo-consultor.en.md`; the "Build the summary" button generates the proposal with the numbers from the tools.
@@ -76,4 +76,4 @@ All of this runs in the browser (⚙️ the page's JavaScript); there is no serv
 - Jensen Huang keynote, GTC Berlin 2026.
 
 ---
-Part of [INEMA.CLUB](https://inema.club) — open and free content.
+Part of [ARCKHÉ AI](https://ARCKHÉ AI) — open and free content.

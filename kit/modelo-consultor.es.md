@@ -1,6 +1,6 @@
 # Modelo del consultor: aplicar el kit "Tu empresa de IA" en un cliente
 
-Para quien hace consultoría de IA en pequeñas y medianas empresas. Son 6 etapas, desde el primer café hasta el informe del piloto de 30 días, usando las herramientas de la guía (https://inematds.github.io/empresa-de-ia/guia/es/).
+Para quien hace consultoría de IA en pequeñas y medianas empresas. Son 6 etapas, desde el primer café hasta el informe del piloto de 30 días, usando las herramientas de la guía (https://linnoff88-dev.github.io/
 La regla de fondo: **un proceso a la vez, medido antes y después**. No vendes "IA"; vendes una tarea que pasa a costar menos y un número que lo prueba.
 
 ## Las 6 etapas
@@ -103,10 +103,10 @@ La guía tiene el botón **Armar el resumen**, que completa este texto con los n
 > - Decisión: [sigue / ajusta / se detiene] — porque [MOTIVO].
 > - Siguiente de la fila: [TAREA 2].
 
-## Para profundizar (cursos y kits abiertos de INEMA)
+## Para profundizar (cursos y kits abiertos de ARCKHÉ)
 
-- Profesional 2030 · Consultor de IA (diagnóstico, piloto y medición de valor) (en portugués): https://inematds.github.io/prof2030-consultor/
-- Consultor de IA · Del rótulo al resultado (en portugués): https://inematds.github.io/consultoria2k/
-- Ventas con IA · Playbook de consultoría (en portugués): https://inematds.github.io/formacao-vendas-ia-consultoria-v72/
-- DICA 1 · Mapa del Cliente (diagnóstico) (en portugués): https://inematds.github.io/formacao-dica-diagnostico-v72/
-- Área Consultoría de IA (cursos y kits): https://eventos.inema.pro/consultoria-ia/es/
+- Profesional 2030 · Consultor de IA (diagnóstico, piloto y medición de valor) (en portugués): https://linnoff88-dev.github.io/
+- Consultor de IA · Del rótulo al resultado (en portugués): https://linnoff88-dev.github.io/
+- Ventas con IA · Playbook de consultoría (en portugués): https://linnoff88-dev.github.io/
+- DICA 1 · Mapa del Cliente (diagnóstico) (en portugués): https://linnoff88-dev.github.io/
+- Área Consultoría de IA (cursos y kits): https://eventos.ARCKHÉ.pro/consultoria-ia/es/

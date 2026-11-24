@@ -1,4 +1,4 @@
-﻿# Sua empresa de IA
+# Sua empresa de IA
 
 <div align="center">
   <img src="capa/logo.svg" alt="Arckhé AI" height="48" />
@@ -6,17 +6,17 @@
 </div>
 
 
-[![Sua empresa de IA](guia/assets/banner.jpg)](https://inematds.github.io/empresa-de-ia/guia/)
+[![Sua empresa de IA](guia/assets/banner.jpg)](https://linnoff88-dev.github.io/
 
 **ðŸ‡§ðŸ‡· [PortuguÃªs](README.md) Â· ðŸ‡ºðŸ‡¸ [English](README.en.md) Â· ðŸ‡ªðŸ‡¸ [EspaÃ±ol](README.es.md)**
 
 ## O que Ã©
 
-Este Ã© um kit gratuito para o dono de pequena ou mÃ©dia empresa sair do uso solto do ChatGPT e colocar um agente de IA para trabalhar num processo de verdade. SÃ£o ferramentas que funcionam no navegador, sem cadastro: o Raio-X de Processos aponta por onde comeÃ§ar, a calculadora mostra quanto custa e quanto devolve, o checklist diz se o agente estÃ¡ seguro para ligar e o comparador da fÃ¡brica mostra se vale mais a ferramenta pronta, a API ou uma mÃ¡quina prÃ³pria, com um teste de modelos abertos em portuguÃªs. Quem faz consultoria tem o modelo para aplicar tudo isso num cliente. Depois, a trilha leva aos cursos e kits do INEMA para montar cada agente. VocÃª sÃ³ precisa do navegador; nada sai do seu computador.
+Este Ã© um kit gratuito para o dono de pequena ou mÃ©dia empresa sair do uso solto do ChatGPT e colocar um agente de IA para trabalhar num processo de verdade. SÃ£o ferramentas que funcionam no navegador, sem cadastro: o Raio-X de Processos aponta por onde comeÃ§ar, a calculadora mostra quanto custa e quanto devolve, o checklist diz se o agente estÃ¡ seguro para ligar e o comparador da fÃ¡brica mostra se vale mais a ferramenta pronta, a API ou uma mÃ¡quina prÃ³pria, com um teste de modelos abertos em portuguÃªs. Quem faz consultoria tem o modelo para aplicar tudo isso num cliente. Depois, a trilha leva aos cursos e kits do ARCKHÉ para montar cada agente. VocÃª sÃ³ precisa do navegador; nada sai do seu computador.
 
 ## ðŸ“– Guia de uso
 
-Guia completo com as ferramentas interativas: **https://inematds.github.io/empresa-de-ia/guia/**
+Guia completo com as ferramentas interativas: **https://linnoff88-dev.github.io/
 
 ## De onde vem
 
@@ -28,7 +28,7 @@ Em Berlim (GTC, 21/10/2026), Jensen Huang disse que toda empresa vai virar empre
 | Modelos | qual IA faz cada tarefa e quanto custa | Calculadora de custo |
 | FÃ¡brica de IA | ferramenta pronta, API ou mÃ¡quina prÃ³pria | Comparador da fÃ¡brica + teste em portuguÃªs |
 | Computadores | agente isolado, acesso mÃ­nimo | Checklist do agente seguro |
-| Energia | pessoas, dados, contexto | trilha INEMA |
+| Energia | pessoas, dados, contexto | trilha ARCKHÉ |
 
 ## O que tem no repositÃ³rio
 
@@ -51,7 +51,7 @@ bench/resultados/               # respostas de cada modelo e resumo.json
 1. ðŸ§  **Raio-X**: o dono lista as tarefas que se repetem e recebe a fila dos 3 primeiros processos (guia, passo 1).
 2. ðŸ§  **Custo**: calcula custo hoje Ã— custo com agente e o custo por tarefa concluÃ­da (guia, passo 2).
 3. ðŸ§  **SeguranÃ§a**: marca o checklist; abaixo de 6 itens nÃ£o liga (guia, passo 3).
-4. ðŸ§  **Piloto de 30 dias** com o kit INEMA indicado, anotando toda semana tarefas, retornos para pessoa, custo da IA e reclamaÃ§Ãµes.
+4. ðŸ§  **Piloto de 30 dias** com o kit ARCKHÉ indicado, anotando toda semana tarefas, retornos para pessoa, custo da IA e reclamaÃ§Ãµes.
 5. ðŸ§  **Medir**: refaz a calculadora com os nÃºmeros reais; deu certo, passa para o prÃ³ximo da fila.
 6. ðŸ§  **FÃ¡brica**: o comparador mostra o custo por mÃªs da ferramenta pronta, da API e da mÃ¡quina prÃ³pria, e quantas tarefas a mÃ¡quina dÃ¡ conta (guia, seÃ§Ã£o FÃ¡brica).
 7. ðŸ§  **Consultoria**: quem atende clientes segue as 6 etapas de `kit/modelo-consultor.md`; o botÃ£o "Montar o resumo para o cliente" gera a proposta com os nÃºmeros das ferramentas.
@@ -82,7 +82,7 @@ Tudo isso roda no navegador (âš™ï¸ JavaScript da pÃ¡gina); nÃ£o hÃ�
 - Keynote de Jensen Huang, GTC Berlim 2026.
 
 ---
-Parte do [INEMA.CLUB](https://inema.club) â€” conteÃºdo aberto e gratuito.
+Parte do [ARCKHÉ AI](https://ARCKHÉ AI) â€” conteÃºdo aberto e gratuito.
 
 ---
 
