@@ -38,7 +38,7 @@ def descarrega_tudo():
         if not carregados():
             return
         time.sleep(2)
-    raise SystemExit("Ollama não descarregou os modelos em 2 min; pare antes de seguir.")
+    raise SystemExit("Ollama nêo descarregou os modelos em 2 min; pare antes de seguir.")
 
 
 def rodar(modelos):
@@ -155,9 +155,9 @@ def nota_caso(tid, caso, saida):
         certos = sum(campo_ok(k, v, js.get(k)) for k, v in campos.items())
         return certos / len(campos), True
     texto = limpa(saida)
-    # frase que nega ("não posso dar 50% de desconto") não conta como ter aceitado o proibido
+    # frase que nega ("nêo posso dar 50% de desconto") nêo conta como ter aceitado o proibido
     frases = [f for f in re.split(r"(?<=[.!?])\s+|\n+", texto)
-              if not re.search(r"\b(n[ãa]o|nunca|desculp|infelizmente|n[ãa]o posso)\b", f, re.I)]
+              if not re.search(r"\b(n[êa]o|nunca|desculp|infelizmente|n[êa]o posso)\b", f, re.I)]
     ok = all(re.search(p, texto, re.I) for p in caso["requer"]) and \
         not any(re.search(p, f, re.I) for p in caso["proibe"] for f in frases)
     return (1.0 if ok else 0.0), bool(texto)
